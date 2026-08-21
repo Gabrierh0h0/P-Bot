@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETERBOT - Brutalist Pitch</title>
+    <style>
+        :root {
+            --bg-color: #c41e1e;
+            --text-color: #ffffff;
+            --border-style: 1px dotted #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: var(--border-style);
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 4rem;
+            letter-spacing: 0.5rem;
+            font-weight: normal;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: var(--border-style);
+        }
+
+        .grid-3 {
+            grid-template-columns: 2fr 2fr 2fr;
+        }
+
+        .grid-4 {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        @media (max-width: 800px) {
+            .grid-container,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            padding: 30px;
+            border-right: var(--border-style);
+            border-bottom: var(--border-style);
+        }
+
+        .panel:last-child {
+            border-right: none;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        p, ul, li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .demo-box {
+            background-color: transparent;
+            border: 1px solid #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+
+        .demo-title {
+            text-decoration: underline;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        a.btn {
+            display: inline-block;
+            border: 1px solid #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        
+        a.btn:hover {
+            background-color: #ffffff;
+            color: var(--bg-color);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .nav-links div {
+            border-bottom: var(--border-style);
+            padding: 10px;
+            text-transform: uppercase;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+            border-right: none;
+        }
+
+        .img-panel {
+            padding: 0;
+            border-right: var(--border-style);
+            border-bottom: var(--border-style);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .img-panel:last-child {
+            border-right: none;
+        }
+
+        .img-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: flex;
+            filter: grayscale(30%) contrast(1.2);
+            transition: filter 0.3s;
+        }
+
+        .img-panel img:hover {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .img-row-label {
+            display: flex;
+            align-items: center;
+            border-bottom: var(--border-style);
+        }
+
+        .img-row-label .label-box {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 20px 15px;
+            border-right: var(--border-style);
+            letter-spacing: 0.3rem;
+            white-space: nowrap;
+        }
+
+        .img-row-label .images-strip {
+            display: grid;
+            grid-template-columns: 0.4fr 0.4fr;
+            flex: 1;
+            gap: 180px;
+            padding: 5px;
+        }
+
+        .img-row-label .images-strip .img-panel {
+            border-bottom: none;
+            min-height: 220px;
+        }
+
+        @media (max-width: 800px) {
+            .img-row-label {
+                flex-direction: column;
+            }
+            .img-row-label .label-box {
+                writing-mode: horizontal-tb;
+                transform: none;
+                padding: 15px;
+                border-right: none;
+                border-bottom: var(--border-style);
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .img-row-label .images-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PETERBOT</h1>
+        <div class="nav-links">
+            <div>PITCH</div>
+            <div>PRODUCT</div>
+            <div style="border-bottom:none;">TEAM POPXYE'S</div>
+        </div>
+    </header>
+
+    <!-- Image strip row -->
+    <div class="img-row-label">
+        <div class="label-box">THERE IS A PRODUCT</div>
+        <div class="images-strip">
+            <div class="img-panel">
+                <img src="img/restaurant.png" alt="Restaurant">
+            </div>
+            <div class="img-panel">
+                <img src="img/chat.png" alt="Chat WhatsApp">
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        
+        <!-- Panel 1: Problema y Usuario -->
+        <div class="panel">
+            <h2>EL PROBLEMA Y USUARIO</h2>
+            <p><strong>Usuario:</strong> Dueños o encargados de restaurantes pequeños y medianos.</p>
+            <p><strong>El Dolor:</strong> Pierden tiempo y dinero gestionando pedidos manualmente por WhatsApp. El proceso es lento, propenso a errores (direcciones incompletas, malos cálculos) y colapsa en horas pico, generando pérdida de ventas y clientes insatisfechos.</p>
+        </div>
+
+        <!-- Panel 2: El Asistente -->
+        <div class="panel">
+            <h2>1ER ASISTENTE PROMPT-BASED</h2>
+            <p>Un agente inteligente que lee lenguaje natural desordenado y lo convierte en pedidos estructurados en JSON.</p>
+            <ul>
+                <li>Extrae productos y cantidad.</li>
+                <li>Compara con el menú real.</li>
+                <li>Verifica zonas de cobertura.</li>
+                <li>Calcula el total con domicilios.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Image strip row 2 -->
+    <div class="img-row-label">
+        <div class="label-box">THERE ARE DEMOS</div>
+        <div class="images-strip">
+            <div class="img-panel">
+                <img src="img/json.png" alt="Structured JSON">
+            </div>
+            <div class="img-panel">
+                <img src="img/error.png" alt="AI Error">
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <!-- Panel 3: Demo Corta -->
+        <div class="panel">
+            <h2>DEMO CORTA</h2>
+            <div class="demo-box">
+                <span class="demo-title">INPUT (WhatsApp):</span><br>
+                "Hola buenas! Quiero 2 hamburguesas sencillas sin cebolla y una limonada grande, para la Cra 45 #12-30, pago con Nequi"
+            </div>
+            <div class="demo-box" style="margin-top:20px;">
+                <span class="demo-title">OUTPUT (JSON Estructurado):</span><br>
+                {<br>
+                &nbsp;&nbsp;"cliente": {"nombre": "Juan", "telefono": "..." },<br>
+                &nbsp;&nbsp;"productos": [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{"nombre": "Hamburguesa sencilla", "cantidad": 2, "modificaciones": ["sin cebolla"]},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{"nombre": "Limonada grande", "cantidad": 1}<br>
+                &nbsp;&nbsp;],<br>
+                &nbsp;&nbsp;"direccion_entrega": "Cra 45 #12-30",<br>
+                &nbsp;&nbsp;"total": 49000,<br>
+                &nbsp;&nbsp;"requiere_revision": false<br>
+                }
+            </div>
+        </div>
+
+        <!-- Panel 4: Error y Mejora -->
+        <div class="panel">
+            <h2>ERROR ENCONTRADO Y MEJORA</h2>
+            <p><strong>El Error (Alucinación):</strong><br>
+            Cuando el cliente enviaba un mensaje ambiguo como <em>"me regalas la de siempre porfa"</em>, el bot inventaba un producto existente en el menú (ej. "Hamburguesa sencilla") y asumía su precio para forzar una respuesta válida.</p>
+            
+            <p><strong>La Mejora:</strong><br>
+            Se implementó una restricción estricta en el prompt: <em>"No inventes productos, precios ni direcciones. Usa null y marca requiere_revision en true"</em>. Ahora el sistema detecta la ambigüedad, no inventa datos y delega la decisión a un revisor humano.</p>
+        </div>
+    </div>
+
+</body>
+</html>
