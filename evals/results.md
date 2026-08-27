@@ -12,7 +12,7 @@ python evals/run_evals.py
 
 Prueba el comportamiento de la **capa de validacion determinista** (`validador_pedido.py`) frente a las extracciones estructuradas. Para ejecutar las pruebas sin depender de claves de API externas, se utiliza una extraccion heuristica (`naive_extract`).
 
-Ultima ejecucion: 2026-08-27 22:53 UTC
+Ultima ejecucion: 2026-08-27 23:01 UTC
 
 ## Resultados
 

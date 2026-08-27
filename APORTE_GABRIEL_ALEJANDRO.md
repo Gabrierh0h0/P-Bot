@@ -1,53 +1,28 @@
-# Aporte Individual — Gabriel Alejandro
+# Mi aporte al proyecto - Gabriel Alejandro
 
-## Contexto y Objetivo
-El objetivo de este aporte es robustecer el bot de pedidos **P-Bot** mediante la implementacion de una capa determinista de negocio que garantice la integridad de los pedidos y resuelva tres desafios criticos:
-1. **Pedidos y productos ambiguos**: Deteccion de terminos informales o faltantes sin inventar productos.
-2. **Productos no disponibles**: Bloqueo de confirmaciones para articulos agotados en el catalogo.
-3. **Descuentos no autorizados / Prompt Injection**: Rechazo de intentos de alterar precios o forzar totales en 0.
+## ¿Qué hice?
+Me enfoqué en hacer que el bot sea confiable y no confirme pedidos con datos inventados o precios incorrectos. Creé una capa de validación en Python para revisar lo que extrae el modelo antes de que pase a cocina o facturación.
 
----
+Me centré en tres problemas clave:
+1. **Productos ambiguos o nombres raros:** si alguien pide cosas confusas como "la de siempre", el bot no inventa un producto sino que pide que alguien lo revise.
+2. **Productos no disponibles:** si piden algo que no hay (como el perro caliente agotado), no lo deja pasar como pedido válido.
+3. **Descuentos falsos / Prompt Injection:** si alguien intenta engañar al bot pidiendo 100% de descuento o cosas gratis, el sistema ignora ese mensaje y calcula el valor real usando los precios del menú.
 
-## Modulos y Componentes Creados
+## Archivos que trabajé
 
-1. **`validador_pedido.py`**
-   - Catalogo oficial de productos con precios y banderas de disponibilidad.
-   - Normalizacion de texto (remocion de diacriticos, minusculas).
-   - Deteccion de proximidad (`difflib`) para identificar typos o ambiguedades.
-   - Verificacion de perimetro de cobertura y medios de pago soportados.
-   - Recalculo determinista de totales: el modelo nunca define el precio final.
-   - Marcado automatico de pedidos sospechosos con `requiere_revision=True` y lista detallada de `motivos_revision`.
+- `validador_pedido.py`: tiene el menú con precios fijos, lista de zonas de entrega y la función `validar_pedido()`.
+- `tests/test_validador_pedido.py`: 7 pruebas unitarias para revisar que todo funcione bien (corren rápido y sin depender de internet ni de APIs).
+- `evals/eval_cases.json` y `evals/run_evals.py`: agregué el caso de producto no disponible y creé el script para correr las pruebas y guardar el resumen en `evals/results.md`.
+- `Sesión 8 - Use case.ipynb`: agregué la Parte 11 al final para mostrar el validador funcionando en el notebook.
 
-2. **`tests/test_validador_pedido.py`**
-   - Suite de 7 pruebas unitarias independientes de llamadas de red o claves de API.
-   - Compatible con `pytest` y `python -m unittest`.
-   - Cobertura de caminos felices, ataques adversariales, direcciones fuera de cobertura, productos agotados y entradas malformadas.
+## Cómo probarlo
 
-3. **`evals/` (Suite de Evaluacion)**
-   - `evals/eval_cases.json`: Dataset estructurado con 6 casos de prueba (incluyendo el caso de producto no disponible).
-   - `evals/run_evals.py`: Script automatizado para ejecutar las evaluaciones y actualizar metricas.
-   - `evals/results.md`: Reporte detallado del baseline determinista (5/6 pass con explicacion tecnica del caso semantico).
-
-4. **Integracion en Notebook (`Sesión 8 - Use case.ipynb`)**
-   - Agregada la **Parte 11: Validacion determinista**, demostrando en vivo como el validador procesa las salidas del prototipo y previene errores en tiempo de ejecucion.
-
----
-
-## Como Ejecutar y Validar
-
-### 1. Pruebas Unitarias
+Pruebas unitarias:
 ```bash
 python -m unittest tests/test_validador_pedido.py
 ```
-*(7/7 pruebas deben pasar exitosamente)*
 
-### 2. Evaluacion de Evals
+Evaluaciones automáticas:
 ```bash
 python evals/run_evals.py
 ```
-*(Actualiza la matriz de resultados en `evals/results.md`)*
-
----
-
-## Conclusiones Tecnicas
-- Separar la extraccion semantica (a cargo del LLM) de la validacion transaccional (a cargo de codigo determinista) elimina los riesgos de alucinacion de precios y ataques de inyeccion en entornos de comercio conversacional.

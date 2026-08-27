@@ -1,17 +1,7 @@
-# Team Rotation — P-Bot
+# Roles y rotación del equipo
 
-Para asegurar calidad y cobertura en el ciclo de desarrollo, el equipo alterna responsabilidades en tres roles:
+Para trabajar en orden nos repartimos las tareas en tres roles que vamos rotando:
 
-| Rol | Responsabilidad | Entregable |
-|---|---|---|
-| **Build** | Implementar logica de negocio, validaciones y conectores. | Modulos de codigo limpios y testeables. |
-| **Evaluate** | Disenar casos de prueba, edge cases y medir precision. | Suites en `evals/` y reportes en `results.md`. |
-| **Explain** | Documentar arquitectura, trade-offs y responder a stakeholders. | Analisis en markdown y respuestas tecnicas. |
-
-## Matriz de Rotacion
-
-| Ciclo / Sprint | Integrante 1 | Integrante 2 |
-|---|---|---|
-| Sprint 1: Evaluacion inicial y baseline | Evaluate | Build & Explain |
-| Sprint 2: Capa determinista y validacion | Build | Evaluate & Explain |
-| Sprint 3: Integracion y defensa adversarial | Explain & Evaluate | Build |
+- **Build (Construir):** escribir el código del validador y las funciones en Python.
+- **Evaluate (Evaluar):** armar los casos de prueba y correr los evals para ver qué pasa y qué falla.
+- **Explain (Explicar):** documentar lo que hicimos, responder las preguntas y explicar las decisiones tomadas.
