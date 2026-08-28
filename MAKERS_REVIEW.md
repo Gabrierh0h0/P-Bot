@@ -36,3 +36,46 @@ En un bot de pedidos, el JSON valido no basta. El sistema debe verificar contra 
 1. Core: completar baseline real para los 5 casos y reportar score `X/5`.
 2. Intermediate: crear una funcion deterministica que valide productos y precios contra un menu fijo.
 3. Advanced: agregar `requires_human_review` cuando haya descuento, producto ambiguo, direccion incompleta o zona fuera de cobertura.
+
+<!-- MAKERS_REVIEW_2026_08_27_START -->
+## Revision docente - 2026-08-27
+
+### Lo que vimos
+
+- Gabriel y Luis Miguel hicieron avances fuertes y muy parecidos: validador de pedidos, tests, eval runner y documentacion individual.
+- El criterio es correcto: el bot no debe inventar productos, descuentos, precios ni zonas de cobertura.
+- Buen punto de Luis Miguel: el extractor temporal no reemplaza al LLM real.
+- El riesgo ahora es duplicacion: dos ramas tocando casi los mismos archivos.
+- El equipo necesita integrar una sola version limpia con lo mejor de ambas.
+
+### Reto de hoy
+
+Unifiquen las dos ramas sin perder evidencia:
+
+1. Decidir que version de alidador_pedido.py queda como base.
+2. Mantener tests y evals en una sola carpeta.
+3. Dejar vals/results.md con score actual, unica falla y siguiente hipotesis.
+
+### Tarea obligatoria: diagrama de arquitectura
+
+Crear docs/arquitectura.md con un diagrama Mermaid que muestre:
+
+`mermaid
+flowchart LR
+  ClienteWhatsApp --> MensajePedido
+  MensajePedido --> ExtractorLLM
+  ExtractorLLM --> PedidoEstructurado
+  PedidoEstructurado --> ValidadorPedido
+  MenuPrecios --> ValidadorPedido
+  Cobertura --> ValidadorPedido
+  ValidadorPedido --> PedidoConfirmable
+  ValidadorPedido --> RevisionHumana
+`
+
+Debe quedar claro que el modelo interpreta texto, pero el negocio se protege con menu, precios, cobertura y confirmacion.
+
+### Criterio de aceptacion
+
+No queremos dos soluciones paralelas. Queremos una rama integrada, corrible y explicable por ambos.
+<!-- MAKERS_REVIEW_2026_08_27_END -->
+
