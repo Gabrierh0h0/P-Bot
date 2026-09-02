@@ -79,3 +79,29 @@ Debe quedar claro que el modelo interpreta texto, pero el negocio se protege con
 No queremos dos soluciones paralelas. Queremos una rama integrada, corrible y explicable por ambos.
 <!-- MAKERS_REVIEW_2026_08_27_END -->
 
+
+<!-- MAKERS_CODE_ARCH_REVIEW_2026_09_01_START -->
+## Revision de codigo y arquitectura - 2026-09-01
+
+### Lectura docente
+
+- Gabriel y Luis Miguel hicieron avances fuertes con validadores, tests y evals.
+- No se detecto docs/arquitectura.md.
+- El problema ahora no es falta de ideas, sino integracion: hay soluciones paralelas tocando lo mismo.
+- El riesgo principal es confirmar pedidos con productos, precios, descuentos o cobertura inventados.
+
+### Revision de principios
+
+- Bien: proteger negocio con menu/precios/cobertura deterministica.
+- Falta: una sola version integrada y mantenible.
+- Falta: arquitectura que muestre extractor LLM, validador, fuente de verdad y confirmacion.
+
+### Pendiente de equipo
+
+Crear docs/arquitectura.md e integrar una sola version de alidador_pedido.py, tests y evals.
+
+### Pendiente por poca evidencia individual
+
+Ambos tienen evidencia. El pendiente no es individual; es coordinacion de equipo y limpieza de integracion.
+<!-- MAKERS_CODE_ARCH_REVIEW_2026_09_01_END -->
+
