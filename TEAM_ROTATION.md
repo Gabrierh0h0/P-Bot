@@ -6,9 +6,9 @@ Objetivo: que todos entiendan todo el sistema, no que cada persona quede encerra
 
 | Rol temporal | Responsable | Que lidera | Quien debe poder explicarlo |
 |---|---|---|---|
-| Build owner | TBD | Cambio tecnico en notebook/script, prompt, modelo o flujo principal | TBD |
-| Evaluate owner | TBD | Evals, baseline, expected vs actual, pass/fail | TBD |
-| Explain owner | TBD | README, resultados, decisiones y demo tecnica | TBD |
+| Build owner | Gabriel Alejandro | Integracion del notebook con el flujo principal | Luis Miguel |
+| Evaluate owner | Luis Miguel | Validador determinista, tests y eval runner | Gabriel Alejandro |
+| Explain owner | Ambos | Arquitectura, resultados y demo tecnica | Ambos |
 
 ## Reglas
 
@@ -41,3 +41,6 @@ Para trabajar en orden nos repartimos las tareas en tres roles que vamos rotando
 - **Build (Construir):** escribir el código del validador y las funciones en Python.
 - **Evaluate (Evaluar):** armar los casos de prueba y correr los evals para ver qué pasa y qué falla.
 - **Explain (Explicar):** documentar lo que hicimos, responder las preguntas y explicar las decisiones tomadas.
+
+Esta asignacion describe la integracion hecha en `makers/review`; cada integrante debe poder
+explicar y modificar tambien la parte liderada por su companero.

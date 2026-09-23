@@ -69,6 +69,6 @@
       "must_offer_alternative_or_flag": true,
       "requires_human_review": true
     },
-    "why_it_matters": "Un producto que existe en el menu pero esta agotado no debe confirmarse como si estuviera disponible; este caso aisla ese motivo sin mezclarlo con cobertura de direccion."
+    "why_it_matters": "Un producto que existe en el menu pero esta agotado no debe confirmarse como si estuviera disponible; este caso aisla ese motivo sin mezclarlo con cobertura de direccion (a diferencia de pbot_out_of_coverage_edge_case, que mezclaba ambos y no dejaba claro cual de las dos fallas se estaba probando)."
   }
 ]

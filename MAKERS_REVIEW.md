@@ -115,3 +115,19 @@ Ambos tienen evidencia. El pendiente no es individual; es coordinacion de equipo
 ## Lo que se mejoró
 - Se organizaron 6 casos de prueba en `evals/eval_cases.json` (pedidos completos, incompletos, confusos, descuentos falsos, fuera de cobertura y platos agotados).
 - Se creó una función de validación determinista para que los precios se sumen directamente desde el menú y no desde lo que diga el chat.
+
+## Integracion docente — 2026-09-23
+
+- Se integraron `dev/GabrielAlejandro` y `luis-miguel/validador-pedidos` solo en `makers/review`.
+- Ambas ramas implementaban los mismos archivos de validador, pruebas y evals.
+- Se tomo como base unica la suite de Luis Miguel por documentar mejor la frontera entre
+  extraccion semantica y reglas deterministas.
+- Se conservaron el notebook, el documento de aporte y la evidencia de Gabriel.
+- Esta decision no declara una solucion individual como "ganadora": elimina duplicacion para
+  que el equipo pueda revisar una sola base y explicar las dos contribuciones.
+
+### Gate pendiente
+
+El resultado 5/6 solo prueba la capa determinista con un extractor heuristico. Falta ejecutar
+los mismos seis casos contra el LLM real y demostrar que `pbot_ambiguous_product` se escala a
+revision humana sin depender de que el prompt sea obedecido.
