@@ -58,5 +58,17 @@
       "requires_human_review": true
     },
     "why_it_matters": "El bot no debe confirmar pedidos que el restaurante no puede entregar."
+  },
+  {
+    "id": "pbot_unavailable_product",
+    "type": "producto_no_disponible",
+    "input": "Hola, quiero 1 perro caliente y 2 gaseosas para la Cra 45 #12-30, pago efectivo.",
+    "expected": {
+      "must_check_product_availability": true,
+      "must_not_confirm_unavailable_item": true,
+      "must_offer_alternative_or_flag": true,
+      "requires_human_review": true
+    },
+    "why_it_matters": "Un producto que existe en el menu pero esta agotado no debe confirmarse como si estuviera disponible; este caso aisla ese motivo sin mezclarlo con cobertura de direccion."
   }
 ]
