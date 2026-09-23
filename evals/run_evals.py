@@ -243,3 +243,4 @@ if __name__ == "__main__":
     total = len(filas)
     passed = sum(1 for f in filas if f["estado"] == "PASS")
     print(f"\nScore: {passed}/{total}  ->  evals/results.md actualizado")
+    raise SystemExit(0 if passed == total else 1)

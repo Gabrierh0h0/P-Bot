@@ -12,7 +12,7 @@ python evals/run_evals.py
 
 Estos resultados prueban la **capa deterministica** (`validador_pedido.py`), no el comportamiento del LLM en produccion. El extractor usado aqui (`naive_extract`, reglas de texto simples, sin IA) es un reemplazo deliberadamente imperfecto de `run_prototype()` (celda 16 del notebook), para poder correr los evals sin `NVIDIA_API_KEY` y de forma 100% reproducible. Cuando el equipo tenga la API key configurada, pueden sustituir `naive_extract` por `run_prototype` en `evals/run_evals.py` sin tocar `validador_pedido.py`, y volver a correr esto para tener tambien el baseline real del modelo.
 
-Ultima corrida: 2026-09-23 22:57 UTC
+Ultima corrida: 2026-09-23 23:06 UTC
 
 ## Resultados (capa deterministica)
 
